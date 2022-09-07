@@ -1,7 +1,8 @@
 name: nhn_payment
-description: Flutter NHN payment plugin widget
-version: 0.0.1
-homepage:
+description: Flutter NHN payment plugin widget.
+version: 0.1.0
+homepage: https://github.com/GiYeongUM
+repository: https://github.com/GiYeongUM/nhn_payment
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -10,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  webview_flutter:
+  webview_flutter: ^3.0.4
 
 
 dev_dependencies:

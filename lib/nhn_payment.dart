@@ -26,7 +26,6 @@ class NhnPayment extends StatelessWidget {
       required this.traceNo})
       : super(key: key);
 
-
   final String url;
   final String siteCode;
   final String paymentNumber;
@@ -53,7 +52,8 @@ class NhnPayment extends StatelessWidget {
           onWebViewCreated: (WebViewController webViewController) {
             completerController = Completer<WebViewController>();
             completerController.complete(webViewController);
-            completerController.future.then((value) => _webViewController = value);
+            completerController.future
+                .then((value) => _webViewController = value);
           },
           onPageFinished: (String url) {},
           javascriptChannels: <JavascriptChannel>{
@@ -65,7 +65,8 @@ class NhnPayment extends StatelessWidget {
                     delegate.url.startsWith('market://'))) {
               await _channel.invokeMethod('intent', {'url': delegate.url});
               return NavigationDecision.prevent;
-            } else if (Platform.isIOS && (delegate.url.contains('itms-apps') ||
+            } else if (Platform.isIOS &&
+                (delegate.url.contains('itms-apps') ||
                     ((!delegate.url.startsWith('https') &&
                         (!delegate.url.startsWith("http")))))) {
               await _channel.invokeMethod('intent', {'url': delegate.url});
@@ -73,28 +74,26 @@ class NhnPayment extends StatelessWidget {
             }
             return NavigationDecision.navigate;
           },
-          initialUrl: Uri.parse(
-                  "$url?site_cd=$siteCode&"
-                      "ordr_idxx=$paymentNumber&"
-                      "good_mny=$payAmount&"
-                      "good_name=$productName&"
-                      "pay_method=$paymentMethod&"
-                      "Ret_URL=$returnUrl&"
-                      "ActionResult=${paymentMethod.toLowerCase()}&"
-                      "approval_key=$approvalKey&"
-                      "PayUrl=$payUrl&"
-                      "currency=410&"
-                      "shop_user_id=$shopUserId&"
-                      "req_tx=pay&"
-                      "traceNo=$traceNo&"
-                      "escw_used=N")
+          initialUrl: Uri.parse("$url?site_cd=$siteCode&"
+                  "ordr_idxx=$paymentNumber&"
+                  "good_mny=$payAmount&"
+                  "good_name=$productName&"
+                  "pay_method=$paymentMethod&"
+                  "Ret_URL=$returnUrl&"
+                  "ActionResult=${paymentMethod.toLowerCase()}&"
+                  "approval_key=$approvalKey&"
+                  "PayUrl=$payUrl&"
+                  "currency=410&"
+                  "shop_user_id=$shopUserId&"
+                  "req_tx=pay&"
+                  "traceNo=$traceNo&"
+                  "escw_used=N")
               .toString(),
           javascriptMode: JavascriptMode.unrestricted,
         ),
       ),
     );
   }
-
 
   Future<bool> _goBack(BuildContext context) async {
     if (await _webViewController.canGoBack()) {
@@ -109,7 +108,5 @@ class NhnPayment extends StatelessWidget {
 JavascriptChannel baseJavascript(BuildContext context) {
   return JavascriptChannel(
       name: 'ChannelName',
-      onMessageReceived: (JavascriptMessage message) async {
-
-      });
+      onMessageReceived: (JavascriptMessage message) async {});
 }
