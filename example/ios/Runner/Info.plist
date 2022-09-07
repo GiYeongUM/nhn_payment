@@ -28,6 +28,53 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>LSApplicationQueriesSchemes</key>
+    <array>
+       <string>wooripay</string>
+       <string>NewSmartPib</string>
+       <string>citimobileapp</string>
+       <string>paycoapplogin</string>
+       <string>payco</string>
+       <string>lpayapp</string>
+       <string>nhallonepayansimclick</string>
+       <string>shinhan-sr-ansimclick</string>
+       <string>smshinhanansimclick</string>
+       <string>hdcardappcardansimclick</string>
+       <string>smhyundaiansimclick</string>
+       <string>mpocket.online.ansimclick</string>
+       <string>scardcertiapp</string>
+       <string>hanawalletmembers</string>
+       <string>cloudpay</string>
+       <string>oneqpay</string>
+       <string>nhappcardansimclick</string>
+       <string>nonghyupcardansimclick</string>
+       <string>lotteappcard</string>
+       <string>lottesmartpay</string>
+       <string>kb-acp</string>
+       <string>ispmobile</string>
+       <string>liivbank</string>
+       <string>newliiv</string>
+       <string>citicardappkr</string>
+       <string>citispay</string>
+       <string>lmslpay</string>
+       <string>shinsegaeeasypayment</string>
+       <string>kakaotalk</string>
+       <string>supertoss</string>
+       <string>samsungpay</string>
+       <string>callonlinepay</string>
+       <string>com.wooricard.wcard</string>
+       <string>payco://</string>
+       <string>payco://payment/online/linkaccount?from=payco</string>
+       <string>payco://payment/online/linkaccount?from=apple&amp;amp;url=</string>
+       <string>payco://payment/online/linkaccount?from=apple</string>
+       <string>naversearchapp</string>
+       <string>naversearchthirdlogin</string>
+       <string>kakaobeabbcd57061040ee0a7864a7f759dd0</string>
+       <string>kakaokompassauth</string>
+       <string>storykompassauth</string>
+       <string>kakaolink</string>
+       <string>kakaotalk-5.9.7</string>
+    </array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -43,5 +90,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>

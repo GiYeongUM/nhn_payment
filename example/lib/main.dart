@@ -16,35 +16,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      platformVersion =
-          await NhnPayment.platformVersion ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +30,18 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: NhnPayment(
+            url: "https://testsmpay.kcp.co.kr/pay/mobileGW.kcp",
+            siteCode: "T0000",
+            paymentNumber: "P003004", // Required to register information on the server
+            payAmount: 900, // Required to register information on the server
+            productName: "ProductName",
+            paymentMethod: "CARD",
+            returnUrl: "returnUrl", // Server Return URL
+            approvalKey: "TyxeVZQwsdLqK9QEmhJSfQcHyKIPdQ/iE35VBPEo1cQ=", // approvalKey
+            payUrl: "https://testsmpay.kcp.co.kr/pay/mobileGW.kcp",
+            shopUserId: "1",
+            traceNo: "T00001L7892"
         ),
       ),
     );
